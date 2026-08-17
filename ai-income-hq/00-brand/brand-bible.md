@@ -31,12 +31,15 @@ or `getincomehq.com`. Consistency across platforms beats a perfect bare handle o
   aimed at the overwhelm, never the person.
 - Every piece ends with one clear next step.
 
-## Visual identity (starter)
-- **Primary:** Electric indigo `#5B4BFF` (trust + tech) + Money green accent `#12B76A`.
-- **Ink:** near-black `#0E0E12`. **Paper:** off-white `#FAFAF7`.
-- **Type:** bold geometric sans for headlines (e.g. Poppins/Sora), clean sans for body (Inter).
-- **Cover style:** big number + big benefit + one icon. Consistent template = looks like a brand,
-  not a PLR dump. Generate covers via the ComfyUI stack (`../ai-stack/`).
+## Visual identity (DECIDED)
+- **Accent (the one bold color):** confident **orange** — `#E2601F` on light, `#FF8A4C` on dark.
+  Signals energy + authority. This is *our* orange, not borrowed from anyone.
+- **Ground:** neutral charcoal `#191A1D` + clean off-white `#F4F3F0` (no brown, no green).
+- **Secondary:** rare teal `#1F7A70` for links only (orange's complement); burnt-orange `#B5451B` stamp.
+- **Logo mark:** "IH" seal badge — orange on charcoal.
+- **Type:** bold geometric sans headlines, clean sans body, mono for utility labels.
+- **Cover style:** big benefit + the orange accent + the IH seal. Consistent template = looks like
+  a brand, not a PLR dump. Generate covers via the ComfyUI stack (`../ai-stack/`).
 
 ## Product lines (shelves in the one store)
 - **The Anti-PLR Kit** — hero line. Done-for-you, ready-to-sell products that fix all 7 PLR gaps.
