@@ -1,140 +1,155 @@
 <title>Income HQ</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-  /* ---------- Tokens: light (bare :root) ---------- */
+  /* ---------- Tokens: light ---------- */
   :root{
-    --paper:#F3F5F1;        /* warm-cool off-white, slight green bias toward accent */
-    --card:#FBFCFA;
-    --ink:#161A1D;          /* near-black, faint blue */
-    --ink-soft:#4C555B;
-    --line:#DDE2DA;
-    --accent:#0E9F6E;       /* money emerald — the one bold color */
-    --accent-ink:#0A7C55;
-    --link:#3D3DF5;         /* indigo, restrained, interactive only */
-    --marker:#FFE24D;       /* workbook highlighter */
-    --marker-ink:#161A1D;
-    --shadow:0 1px 0 var(--line), 0 18px 40px -28px rgba(20,30,25,.5);
+    --paper:#EEECE6;        /* warm bone-grey, chosen (not cream) */
+    --card:#F7F5EF;
+    --ink:#17140D;          /* espresso near-black */
+    --ink-soft:#5C574A;
+    --line:#D9D4C8;
+    --gold:#B4842B;         /* deep brass — the one bold color */
+    --gold-ink:#8F681C;
+    --gold-glow:rgba(180,132,43,.16);
+    --link:#33507F;         /* rare deep ink-blue for links only */
+    --seal:#7A2B25;         /* oxblood, used once as an accent stamp */
+    --shadow:0 1px 0 var(--line),0 24px 60px -34px rgba(30,22,8,.55);
   }
   @media (prefers-color-scheme:dark){
     :root:not([data-theme="light"]){
-      --paper:#0E1311;
-      --card:#151B18;
-      --ink:#ECF1EC;
-      --ink-soft:#9AA6A0;
-      --line:#26302B;
-      --accent:#1FC98A;
-      --accent-ink:#5FE3B0;
-      --link:#8C8CFF;
-      --marker:#F4D93B;
-      --marker-ink:#161A1D;
-      --shadow:0 1px 0 var(--line), 0 22px 50px -30px rgba(0,0,0,.8);
+      --paper:#120F09; --card:#1C170F; --ink:#F1ECE0; --ink-soft:#A79E8A;
+      --line:#2C261B; --gold:#E0B45C; --gold-ink:#EFC978; --gold-glow:rgba(224,180,92,.14);
+      --link:#93B2E8; --seal:#D98A7E;
+      --shadow:0 1px 0 var(--line),0 28px 70px -38px rgba(0,0,0,.85);
     }
   }
   :root[data-theme="dark"]{
-    --paper:#0E1311; --card:#151B18; --ink:#ECF1EC; --ink-soft:#9AA6A0;
-    --line:#26302B; --accent:#1FC98A; --accent-ink:#5FE3B0; --link:#8C8CFF;
-    --marker:#F4D93B; --marker-ink:#161A1D;
-    --shadow:0 1px 0 var(--line), 0 22px 50px -30px rgba(0,0,0,.8);
+    --paper:#120F09; --card:#1C170F; --ink:#F1ECE0; --ink-soft:#A79E8A;
+    --line:#2C261B; --gold:#E0B45C; --gold-ink:#EFC978; --gold-glow:rgba(224,180,92,.14);
+    --link:#93B2E8; --seal:#D98A7E;
+    --shadow:0 1px 0 var(--line),0 28px 70px -38px rgba(0,0,0,.85);
   }
 
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  body{
-    margin:0; background:var(--paper); color:var(--ink);
+  body{margin:0;background:var(--paper);color:var(--ink);
     font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    line-height:1.55; -webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1060px;margin:0 auto;padding:0 22px}
   .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
-    text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:600}
+    text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;font-weight:600}
   a{color:var(--link)}
-  .mark{background:linear-gradient(180deg,transparent 58%,var(--marker) 58%);
-    color:var(--marker-ink);padding:0 .06em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+  .gold{color:var(--gold-ink)}
 
   /* ---------- Top bar ---------- */
-  header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--paper) 86%,transparent);
-    backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-  .bar{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.02em}
-  .spark{display:grid;place-items:center;width:30px;height:30px;border-radius:8px;
-    background:var(--ink);color:var(--paper);font-size:1rem}
+  header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 84%,transparent);
+    backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em;font-size:1.05rem}
+  .seal{display:grid;place-items:center;width:32px;height:32px;border-radius:9px;
+    background:var(--ink);color:var(--gold);font-weight:800;font-size:.9rem;
+    box-shadow:inset 0 0 0 1.5px var(--gold)}
   .toggle{border:1px solid var(--line);background:var(--card);color:var(--ink);
-    border-radius:999px;padding:7px 12px;cursor:pointer;font:inherit;font-size:.8rem}
-  .toggle:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+    border-radius:999px;padding:7px 13px;cursor:pointer;font:inherit;font-size:.8rem}
+  .toggle:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
-  /* ---------- Hero ---------- */
-  .hero{padding:70px 0 48px}
-  .eyebrow{color:var(--accent-ink)}
-  h1{font-size:clamp(2.5rem,6.4vw,4.6rem);line-height:.98;letter-spacing:-.03em;
-    font-weight:850;margin:.5rem 0 .2rem;text-wrap:balance}
-  .lede{font-size:clamp(1.05rem,2.2vw,1.28rem);color:var(--ink-soft);max-width:33ch;margin:18px 0 0}
-  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:30px}
-  .btn{display:inline-flex;align-items:center;gap:9px;border-radius:11px;padding:14px 22px;
+  /* ---------- Cinematic hero ---------- */
+  .hero{position:relative;min-height:clamp(560px,86vh,820px);display:flex;align-items:center;
+    overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero-bg{position:absolute;inset:0;z-index:0;
+    background:
+      radial-gradient(60% 55% at 78% 18%,var(--gold-glow),transparent 60%),
+      radial-gradient(50% 50% at 12% 88%,color-mix(in srgb,var(--seal) 14%,transparent),transparent 62%),
+      var(--paper);
+    background-size:160% 160%,160% 160%,100% 100%;
+    animation:drift 22s ease-in-out infinite alternate}
+  .hero-grain{position:absolute;inset:0;z-index:1;opacity:.5;mix-blend-mode:soft-light;pointer-events:none;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/></svg>")}
+  @keyframes drift{0%{background-position:0% 0%,100% 100%,0 0}100%{background-position:100% 40%,0% 60%,0 0}}
+  @media (prefers-reduced-motion:reduce){.hero-bg{animation:none}}
+
+  .hero-in{position:relative;z-index:2;padding:40px 0}
+  .eyebrow-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .stamp{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--gold);color:var(--gold-ink);
+    border-radius:999px;padding:5px 12px;font-family:ui-monospace,monospace;font-size:.66rem;
+    letter-spacing:.16em;text-transform:uppercase;font-weight:700}
+  .stamp .dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+  h1{font-size:clamp(2.7rem,7.4vw,5.4rem);line-height:.94;letter-spacing:-.035em;font-weight:850;
+    margin:22px 0 0;max-width:16ch}
+  h1 .ln{display:block;opacity:0;transform:translateY(24px);animation:rise .8s cubic-bezier(.2,.7,.2,1) forwards}
+  h1 .ln:nth-child(1){animation-delay:.15s}
+  h1 .ln:nth-child(2){animation-delay:.32s}
+  h1 .em{color:var(--gold-ink)}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){h1 .ln{opacity:1;transform:none;animation:none}}
+  .lede{font-size:clamp(1.06rem,2.1vw,1.3rem);color:var(--ink-soft);max-width:44ch;margin:22px 0 0;
+    opacity:0;animation:rise .8s ease .5s forwards}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:32px;
+    opacity:0;animation:rise .8s ease .66s forwards}
+  @media (prefers-reduced-motion:reduce){.lede,.hero-cta{opacity:1;animation:none}}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:12px;padding:15px 24px;
     font-weight:750;text-decoration:none;border:1px solid transparent;font-size:1rem;cursor:pointer}
-  .btn-primary{background:var(--accent);color:#04140D}
-  .btn-primary:hover{background:var(--accent-ink)}
-  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
-  .btn-ghost:hover{border-color:var(--ink)}
+  .btn-primary{background:var(--gold);color:#1a1204}
+  .btn-primary:hover{background:var(--gold-ink)}
+  .btn-play{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .btn-play:hover{background:var(--ink);color:var(--paper)}
   .btn:focus-visible{outline:3px solid var(--link);outline-offset:2px}
-  .reassure{color:var(--ink-soft);font-size:.9rem;margin-top:14px}
-  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
-  @media (max-width:760px){.hero-grid{grid-template-columns:1fr;gap:26px}}
+  .btn-play .tri{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;
+    border:1.5px solid currentColor;font-size:.6rem;padding-left:2px}
 
-  /* product card */
-  .cover{background:var(--card);border:1px solid var(--line);border-radius:18px;
-    padding:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-  .cover:before{content:"";position:absolute;inset:0;background:
-    repeating-linear-gradient(135deg,transparent 0 22px,color-mix(in srgb,var(--accent) 8%,transparent) 22px 23px)}
-  .cover-inner{position:relative}
-  .big-num{font-size:3.4rem;font-weight:850;letter-spacing:-.04em;line-height:1}
-  .cover h3{margin:.3rem 0 0;font-size:1.35rem;letter-spacing:-.02em}
-  .cover p{color:var(--ink-soft);margin:.5rem 0 0;font-size:.95rem}
-  .price{display:flex;align-items:baseline;gap:10px;margin-top:18px}
-  .price .now{font-size:2rem;font-weight:850;letter-spacing:-.02em}
-  .price .was{color:var(--ink-soft);text-decoration:line-through}
+  /* ---------- Modal (who we are) ---------- */
+  .modal{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:22px;
+    background:rgba(10,8,3,.62);backdrop-filter:blur(4px)}
+  .modal[open]{display:flex}
+  .sheet{background:var(--card);border:1px solid var(--line);border-radius:18px;max-width:600px;width:100%;
+    padding:30px;box-shadow:var(--shadow);position:relative;max-height:88vh;overflow:auto}
+  .sheet h2{margin:.2rem 0 0;font-size:1.7rem;letter-spacing:-.02em}
+  .sheet p{color:var(--ink-soft);margin:.8rem 0 0}
+  .sheet .frame{aspect-ratio:16/9;border-radius:12px;border:1px dashed var(--gold);
+    background:radial-gradient(60% 80% at 50% 30%,var(--gold-glow),transparent),var(--paper);
+    display:grid;place-items:center;text-align:center;color:var(--gold-ink);margin-bottom:18px}
+  .x{position:absolute;top:14px;right:14px;border:1px solid var(--line);background:var(--paper);
+    color:var(--ink);width:34px;height:34px;border-radius:9px;cursor:pointer;font-size:1.1rem}
+  .x:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
 
   /* ---------- Sections ---------- */
-  section{padding:52px 0;border-top:1px solid var(--line)}
-  h2{font-size:clamp(1.6rem,3.6vw,2.3rem);letter-spacing:-.025em;margin:.5rem 0 6px;text-wrap:balance}
-  .sub{color:var(--ink-soft);max-width:56ch}
+  section{padding:56px 0;border-top:1px solid var(--line)}
+  h2.sec{font-size:clamp(1.7rem,3.8vw,2.4rem);letter-spacing:-.025em;margin:.5rem 0 6px;text-wrap:balance}
+  .sub{color:var(--ink-soft);max-width:58ch}
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
   @media (max-width:760px){.steps{grid-template-columns:1fr}}
-  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
-  .step .n{color:var(--accent-ink)}
-  .step h4{margin:8px 0 6px;font-size:1.1rem;letter-spacing:-.01em}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .step h4{margin:8px 0 6px;font-size:1.12rem;letter-spacing:-.01em}
   .step p{margin:0;color:var(--ink-soft);font-size:.94rem}
+  .step .n{color:var(--gold-ink)}
 
-  /* sample prompts */
   .samples{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
   @media (max-width:760px){.samples{grid-template-columns:1fr}}
-  .prompt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+  .prompt{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);
     border-radius:0 12px 12px 0;padding:18px 20px}
-  .prompt .tag{color:var(--accent-ink)}
+  .prompt .tag{color:var(--gold-ink)}
   .prompt p{margin:8px 0 0;font-size:.95rem}
-  .prompt code{font-family:ui-monospace,Menlo,monospace;background:color-mix(in srgb,var(--link) 14%,transparent);
+  .prompt code{font-family:ui-monospace,Menlo,monospace;background:color-mix(in srgb,var(--gold) 16%,transparent);
     color:var(--ink);padding:.05em .3em;border-radius:5px;font-size:.86em}
 
-  /* ladder */
   .ladder{display:grid;gap:10px;margin-top:26px}
   .rung{display:flex;align-items:center;justify-content:space-between;gap:16px;
     background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
-  .rung:nth-child(5){border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset}
+  .rung:nth-child(5){border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
   .rung .label{font-weight:700}
   .rung .desc{color:var(--ink-soft);font-size:.9rem}
   .rung .amt{font-weight:800;white-space:nowrap;font-variant-numeric:tabular-nums}
 
-  /* faq */
   details{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:4px 18px;margin-top:12px}
-  details+details{margin-top:10px}
   summary{cursor:pointer;font-weight:700;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";color:var(--accent-ink);font-weight:800}
+  summary::after{content:"+";color:var(--gold-ink);font-weight:800}
   details[open] summary::after{content:"–"}
   details p{margin:0 0 16px;color:var(--ink-soft)}
 
-  .final{text-align:center;padding:70px 0}
-  .final h2{margin-bottom:10px}
+  .final{text-align:center;padding:74px 0}
   footer{border-top:1px solid var(--line);padding:30px 0;color:var(--ink-soft);font-size:.85rem}
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
@@ -144,87 +159,92 @@
 
 <header>
   <div class="wrap bar">
-    <div class="brand"><span class="spark">⚡</span>Income HQ</div>
+    <div class="brand"><span class="seal">IH</span>Income HQ</div>
     <button class="toggle" id="tg" aria-label="Toggle color theme">Theme</button>
   </div>
 </header>
 
-<main class="wrap">
-  <section class="hero" style="border-top:none">
-    <div class="hero-grid">
-      <div>
-        <div class="mono eyebrow">Dummy-Proof Prompts · No. 01</div>
-        <h1>AI income,<br>minus the <span class="mark">overwhelm</span>.</h1>
-        <p class="lede">30 copy-paste prompts that turn AI into your unpaid marketing team. Fill the blanks, hit enter, ship something today.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#get">Get the pack — $9</a>
-          <a class="btn btn-ghost" href="#inside">See what's inside</a>
-        </div>
-        <div class="reassure">Instant download · Beginner-friendly · No experience needed</div>
-      </div>
-      <div class="cover" aria-hidden="true">
-        <div class="cover-inner">
-          <div class="mono" style="color:var(--accent-ink)">Prompt pack</div>
-          <div class="big-num">30</div>
-          <h3>Dummy-Proof AI Money Prompts</h3>
-          <p>Find something to sell → make it → sell it → go viral. All in plain English.</p>
-          <div class="price"><span class="now">$9</span><span class="was">$29</span></div>
-        </div>
-      </div>
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="eyebrow-row">
+      <span class="stamp"><span class="dot"></span>The Anti-PLR Standard</span>
+      <span class="mono" style="color:var(--ink-soft)">Income HQ</span>
     </div>
-  </section>
+    <h1><span class="ln">AI income,</span><span class="ln"><span class="em">without the junk.</span></span></h1>
+    <p class="lede">Everyone else sells recycled PLR that never works. We build done-for-you products that actually make you money — ready to sell the day you get them.</p>
+    <div class="hero-cta">
+      <button class="btn btn-play" id="playBtn" aria-haspopup="dialog"><span class="tri">▶</span> Watch — who we are · 0:30</button>
+      <a class="btn btn-primary" href="#get">Start with the $9 pack</a>
+    </div>
+  </div>
+</section>
 
-  <section id="inside" class="reveal">
-    <div class="mono eyebrow">How it works</div>
-    <h2>Three steps. That's the whole thing.</h2>
+<div class="modal" id="story" role="dialog" aria-modal="true" aria-labelledby="story-h">
+  <div class="sheet">
+    <button class="x" id="closeStory" aria-label="Close">✕</button>
+    <div class="frame"><div><div class="mono">Brand film · 0:30</div><div style="margin-top:6px;font-weight:700">Dropping soon — script is written ✍️</div></div></div>
+    <div class="mono gold">Who we are</div>
+    <h2 id="story-h">We got tired of the junk. So we fixed it.</h2>
+    <p>Income HQ exists for one reason: the internet is flooded with recycled "make money" packs that leave beginners frustrated and broke, convinced passive income is a scam.</p>
+    <p>We hold a different line — <strong>the Anti-PLR Standard</strong>. Every product is done-for-you, ready to sell, with modern copy that actually converts. No fluff, no fleshing-out, no jargon. You buy it, you follow the steps, you get paid.</p>
+    <p>Whether you're starting from zero or you've been burned before — <strong>this is where AI income gets real.</strong></p>
+  </div>
+</div>
+
+<main class="wrap">
+  <section id="inside" class="reveal" style="border-top:none">
+    <div class="mono gold">How it works</div>
+    <h2 class="sec">Three steps. That's the whole thing.</h2>
     <p class="sub">No dashboards to learn, no tech setup. If you can copy and paste, you can do this.</p>
     <div class="steps">
-      <div class="step"><div class="mono n">Step 01</div><h4>Pick a prompt</h4><p>Choose the one for the job you need done — from finding a niche to writing a sales page.</p></div>
-      <div class="step"><div class="mono n">Step 02</div><h4>Fill the blanks</h4><p>Swap the [brackets] for your details. The more specific you are, the better AI gets.</p></div>
-      <div class="step"><div class="mono n">Step 03</div><h4>Ship it</h4><p>Paste into ChatGPT, Claude, or Gemini, hit enter, and put the result to work today.</p></div>
+      <div class="step"><div class="mono n">Step 01</div><h4>Grab a done-for-you pack</h4><p>Pick your product. It's already built, branded, and ready — not a raw file you have to fix.</p></div>
+      <div class="step"><div class="mono n">Step 02</div><h4>Make it yours</h4><p>Swap in your name and tweak a line or two. Editable files + a customization guide included.</p></div>
+      <div class="step"><div class="mono n">Step 03</div><h4>Sell it</h4><p>Use the modern sales copy we hand you and start collecting payments today.</p></div>
     </div>
   </section>
 
   <section class="reveal">
-    <div class="mono eyebrow">A peek inside</div>
-    <h2>Real prompts, not filler.</h2>
-    <p class="sub">Here are 4 of the 30. Each one has a clear role, a task, and blanks you personalize.</p>
+    <div class="mono gold">A peek inside</div>
+    <h2 class="sec">Real tools, not filler.</h2>
+    <p class="sub">A taste of what's inside our flagship prompt pack — each one ready to paste and use.</p>
     <div class="samples">
-      <div class="prompt"><span class="mono tag">Find</span><p><strong>Niche finder</strong> — "Give me 7 profitable, beginner-friendly niches from my interests: <code>[LIST 3]</code>. Rank by how fast a beginner could get the first sale."</p></div>
+      <div class="prompt"><span class="mono tag">Find</span><p><strong>Niche finder</strong> — "Give me 7 profitable, beginner-friendly niches from my interests: <code>[LIST 3]</code>, ranked by how fast a beginner could get the first sale."</p></div>
       <div class="prompt"><span class="mono tag">Create</span><p><strong>Workbook outline</strong> — "Create a full outline for a <code>[TOPIC]</code> workbook for <code>[AUDIENCE]</code>, with an exercise in every section."</p></div>
       <div class="prompt"><span class="mono tag">Sell</span><p><strong>Sales-page writer</strong> — "Write a high-converting sales page for <code>[PRODUCT]</code> at $<code>[PRICE]</code>: headline, promise, bullets, guarantee, FAQ, CTA."</p></div>
-      <div class="prompt"><span class="mono tag">Go viral</span><p><strong>Hook machine</strong> — "Give me 20 scroll-stopping video hooks for <code>[NICHE]</code>. Clean, platform-safe, no clickbait lies."</p></div>
+      <div class="prompt"><span class="mono tag">Grow</span><p><strong>Hook machine</strong> — "Give me 20 scroll-stopping video hooks for <code>[NICHE]</code>. Clean, platform-safe, no clickbait lies."</p></div>
     </div>
   </section>
 
   <section class="reveal">
-    <div class="mono eyebrow">Where this leads</div>
-    <h2>The $9 pack is rung one.</h2>
-    <p class="sub">It's the on-ramp to a whole system — you grow into the next rung only when you're ready.</p>
+    <div class="mono gold">Where this leads</div>
+    <h2 class="sec">Start at $9. Grow into the whole HQ.</h2>
+    <p class="sub">Every product is a rung. You climb only when you're ready — no pressure, no upsell traps.</p>
     <div class="ladder">
       <div class="rung"><div><div class="label">Free starter guide</div><div class="desc">Your first win, no strings</div></div><div class="amt">$0</div></div>
-      <div class="rung"><div><div class="label">Dummy-Proof Prompts</div><div class="desc">This pack — 30 money prompts</div></div><div class="amt">$9</div></div>
-      <div class="rung"><div><div class="label">Core how-to pack</div><div class="desc">A full playbook for one outcome</div></div><div class="amt">$27</div></div>
-      <div class="rung"><div><div class="label">The bundle</div><div class="desc">Prompts + guides + templates</div></div><div class="amt">$47–97</div></div>
-      <div class="rung"><div><div class="label">Membership</div><div class="desc">New drops + community, every month</div></div><div class="amt">$97/mo</div></div>
+      <div class="rung"><div><div class="label">Dummy-Proof Prompts</div><div class="desc">30 money prompts</div></div><div class="amt">$9</div></div>
+      <div class="rung"><div><div class="label">The Anti-PLR Kit</div><div class="desc">Done-for-you product, ready to sell</div></div><div class="amt">$27</div></div>
+      <div class="rung"><div><div class="label">The bundle</div><div class="desc">Prompts + kits + templates</div></div><div class="amt">$47–97</div></div>
+      <div class="rung"><div><div class="label">Membership</div><div class="desc">New drops + community, monthly</div></div><div class="amt">$97/mo</div></div>
     </div>
   </section>
 
   <section class="reveal">
-    <div class="mono eyebrow">Questions</div>
-    <h2>Before you grab it</h2>
-    <details><summary>Do I need any experience?<span></span></summary><p>None. If you can copy, paste, and type your details into the blanks, you're qualified. Every prompt is written in plain English.</p></details>
+    <div class="mono gold">Questions</div>
+    <h2 class="sec">Before you start</h2>
+    <details><summary>Do I need any experience?<span></span></summary><p>None. If you can copy, paste, and type your details in, you're qualified. Everything is plain English.</p></details>
+    <details><summary>How is this different from cheap PLR?<span></span></summary><p>That's the whole point. Most PLR is recycled junk that needs hours of work and comes with dead sales copy. Ours is done-for-you, differentiated, and ready to sell — the Anti-PLR Standard.</p></details>
     <details><summary>Which AI do I use?<span></span></summary><p>Any of them — ChatGPT, Claude, or Gemini all work, including the free versions.</p></details>
-    <details><summary>What do I actually get?<span></span></summary><p>A 30-prompt pack organized into four stages — find something to sell, create it, sell it, and go viral — plus a 60-second "how to use this" guide. Instant download.</p></details>
-    <details><summary>Is this just recycled free prompts?<span></span></summary><p>No. Each prompt is structured with a role, a specific task, and fill-in-the-blank variables so you get usable output on the first try — not vague one-liners.</p></details>
+    <details><summary>What do I actually get?<span></span></summary><p>Instant-download digital products, each ready to use, with the copy and steps to sell them.</p></details>
   </section>
 
-  <section id="get" class="final reveal" style="border-top:1px solid var(--line)">
-    <div class="mono eyebrow">Start today</div>
-    <h2>Pick one prompt. Ship one thing.</h2>
-    <p class="sub" style="margin:0 auto 26px">That's how the first sale happens. Everything else builds from there.</p>
-    <a class="btn btn-primary" href="#" style="font-size:1.08rem;padding:16px 28px">Get the pack — $9</a>
-    <div class="reassure">Instant download · 100% brand-safe · Made with Income HQ</div>
+  <section id="get" class="final reveal">
+    <div class="mono gold">Start today</div>
+    <h2 class="sec">This is where AI income gets real.</h2>
+    <p class="sub" style="margin:0 auto 26px">Grab the $9 pack, follow the steps, ship one thing. Everything builds from there.</p>
+    <a class="btn btn-primary" href="#" style="font-size:1.08rem;padding:16px 30px">Start with the $9 pack</a>
+    <div class="mono" style="color:var(--ink-soft);margin-top:16px">Instant download · 100% brand-safe · The Anti-PLR Standard</div>
   </section>
 </main>
 
@@ -235,8 +255,17 @@
     var root=document.documentElement, btn=document.getElementById('tg');
     function cur(){var e=root.getAttribute('data-theme'); if(e) return e;
       return matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}
-    btn.addEventListener('click',function(){
-      root.setAttribute('data-theme', cur()==='dark'?'light':'dark');});
+    btn.addEventListener('click',function(){root.setAttribute('data-theme',cur()==='dark'?'light':'dark');});
+
+    var modal=document.getElementById('story'), open=document.getElementById('playBtn'),
+        close=document.getElementById('closeStory');
+    function show(){modal.setAttribute('open','');close.focus();}
+    function hide(){modal.removeAttribute('open');open.focus();}
+    open.addEventListener('click',show);
+    close.addEventListener('click',hide);
+    modal.addEventListener('click',function(e){if(e.target===modal)hide();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.hasAttribute('open'))hide();});
+
     if(!matchMedia('(prefers-reduced-motion:reduce)').matches){
       var io=new IntersectionObserver(function(es){es.forEach(function(x){
         if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
