@@ -1,6 +1,7 @@
-# AI Income HQ — Operating Hub
+# Income HQ — Operating Hub
 
-**Brand north star:** *The "For Dummies" of AI income* — one trusted place that teaches, and
+**Brand:** **Income HQ** · war cry **"The Anti-PLR Standard"** · hero line **"The Anti-PLR Kit."**
+**North star:** *The "For Dummies" of AI income* — one trusted place that teaches, and
 sells the shortcuts to, making money with AI (digital products, social/viral content, bots,
 agents, business planning).
 

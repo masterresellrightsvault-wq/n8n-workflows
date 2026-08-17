@@ -1,8 +1,17 @@
-# Brand Bible — AI Income HQ
+# Brand Bible — Income HQ
+
+## Brand (DECIDED)
+- **Master brand:** **Income HQ** — the go-to HQ for making money with AI. Plain-English,
+  beginner-clear, keyword-strong for search + AI citation. Collision-checked.
+- **War cry / positioning line:** **"The Anti-PLR Standard."**
+- **Hero product line:** **"The Anti-PLR Kit"** — done-for-you, ready-to-sell, modern copy
+  included; the cure to every complaint about garbage PLR (see `../07-research/demand-radar-01.md`).
+- **Fallback if ever needed:** Profit HQ.
 
 ## Positioning (one line)
 The **"For Dummies" of AI income** — plain-English shortcuts to making money with AI:
-digital products, viral content, bots, agents, and business planning.
+digital products, viral content, bots, agents, and business planning. We hold the
+**Anti-PLR Standard**: everything we sell actually works, out of the box.
 
 ## Who it's for
 Beginners and side-hustlers who want AI income but are overwhelmed by tools and jargon.
@@ -11,15 +20,10 @@ We remove overwhelm: buy the pack, follow the steps, get a result.
 ## Promise
 > "You don't need to be technical. You need the right pack and the next step. We hand you both."
 
-## Brand name shortlist (pick one — check domain + @handle)
-1. **AI Income HQ** — clean, authoritative, scalable to a membership/community.
-2. **Dummy-Proof AI** — leans into the "for dummies" angle, memorable, friendly.
-3. **The AI Money Desk** — premium, newsletter/authority feel.
-4. **Plug & Profit AI** — outcome-first, great for "AI employees" product line.
-5. **StartSimple AI** — reassuring, beginner-first, brandable.
-
-> Recommendation: **AI Income HQ** as the master brand + **"Dummy-Proof"** as the product-line
-> label (e.g. *Dummy-Proof AI Prompts*, *Dummy-Proof AI Employees*). Best of both.
+## Handle strategy (you check + claim)
+Use the SAME handle on every platform + the domain. Try in order, grab the first open one:
+`@incomehq` → `@getincomehq` → `@incomehq.co` → `@joinincomehq`. Match domain: `incomehq.co`
+or `getincomehq.com`. Consistency across platforms beats a perfect bare handle on one.
 
 ## Voice
 - Warm, blunt, encouraging. Short sentences. No jargon without a plain-English gloss.
@@ -35,6 +39,7 @@ We remove overwhelm: buy the pack, follow the steps, get a result.
   not a PLR dump. Generate covers via the ComfyUI stack (`../ai-stack/`).
 
 ## Product lines (shelves in the one store)
+- **The Anti-PLR Kit** — hero line. Done-for-you, ready-to-sell products that fix all 7 PLR gaps.
 - **Dummy-Proof Prompts** — niche prompt packs w/ instructions.
 - **AI Employees** — plug-in agents/skills ("Content Employee," "SEO Employee," "DM Closer").
 - **How-To Packs** — step-by-step guides on exactly what people Google.
@@ -45,6 +50,8 @@ We remove overwhelm: buy the pack, follow the steps, get a result.
 Free lead magnet → **$9 tripwire** → **$27 core** → **$47–97 bundle** → **$97/mo membership**.
 
 ## Taglines (pick per placement)
+- "The Anti-PLR Standard." *(primary war cry)*
 - "AI income, minus the overwhelm."
+- "Done-for-you products that actually work."
 - "Buy the pack. Follow the steps. Get paid."
-- "The dummy-proof way to make money with AI."
+- "Burned by PLR? This is the fix."
