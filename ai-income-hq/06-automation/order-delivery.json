@@ -1,0 +1,75 @@
+{
+  "name": "AI Income HQ - Order Delivery + Tag",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "new-order",
+        "responseMode": "onReceived",
+        "options": {}
+      },
+      "id": "webhook-order",
+      "name": "New Order Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "buyer_email", "value": "={{ $json.body.email }}" },
+            { "name": "product_name", "value": "={{ $json.body.product }}" },
+            { "name": "download_url", "value": "={{ $json.body.download_url }}" }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set-fields",
+      "name": "Map Order Fields",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "fromEmail": "hello@ai-income-hq.com",
+        "toEmail": "={{ $json.buyer_email }}",
+        "subject": "Your download is ready ✅ {{ $json.product_name }}",
+        "text": "Thanks for your order!\n\nHere is your download: {{ $json.download_url }}\n\nPick ONE thing inside and ship something today.\n\n— AI Income HQ",
+        "options": {}
+      },
+      "id": "send-email",
+      "name": "Email Download Link",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2,
+      "position": [720, 220]
+    },
+    {
+      "parameters": {
+        "url": "https://connect.mailerlite.com/api/subscribers",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={ \"email\": \"{{ $json.buyer_email }}\", \"fields\": { \"last_product\": \"{{ $json.product_name }}\" }, \"groups\": [\"BUYERS\"] }",
+        "options": {}
+      },
+      "id": "tag-email",
+      "name": "Add/Tag in MailerLite",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [720, 380],
+      "notes": "Set a MailerLite Bearer-token credential on this node before enabling."
+    }
+  ],
+  "connections": {
+    "New Order Webhook": { "main": [[{ "node": "Map Order Fields", "type": "main", "index": 0 }]] },
+    "Map Order Fields": {
+      "main": [[
+        { "node": "Email Download Link", "type": "main", "index": 0 },
+        { "node": "Add/Tag in MailerLite", "type": "main", "index": 0 }
+      ]]
+    }
+  },
+  "settings": {},
+  "active": false
+}

@@ -1,0 +1,204 @@
+<title>Income HQ Brand Board</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    --paper:#F4F3F0; --card:#FFFFFF; --ink:#191A1D; --soft:#5A5D64; --line:#E4E2DD;
+    --or:#FF6A1A; --or-d:#C2490D; --teal:#1F7A70; --wash:#FBEDE4; --charcoal:#191A1D;
+    --shadow:0 1px 0 var(--line),0 20px 46px -30px rgba(25,26,29,.4);
+  }
+  @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+    --paper:#101113; --card:#191B1E; --ink:#F2F1EE; --soft:#A2A5AB; --line:#2A2D32;
+    --or:#FF9147; --or-d:#FFB183; --teal:#5FBEB2; --wash:#2A1C13;
+    --shadow:0 1px 0 var(--line),0 24px 54px -32px rgba(0,0,0,.8);
+  }}
+  :root[data-theme="dark"]{
+    --paper:#101113; --card:#191B1E; --ink:#F2F1EE; --soft:#A2A5AB; --line:#2A2D32;
+    --or:#FF9147; --or-d:#FFB183; --teal:#5FBEB2; --wash:#2A1C13;
+    --shadow:0 1px 0 var(--line),0 24px 54px -32px rgba(0,0,0,.8);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.5}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .mono{font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;text-transform:uppercase;
+    letter-spacing:.16em;font-size:.68rem;font-weight:600;color:var(--or-d)}
+  .seal{display:grid;place-items:center;border-radius:12px;background:var(--ink);color:var(--or);
+    font-weight:800;box-shadow:inset 0 0 0 2px var(--or)}
+
+  header{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;
+    background:color-mix(in srgb,var(--paper) 86%,transparent);backdrop-filter:blur(9px)}
+  .hbar{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .hbrand{display:flex;align-items:center;gap:11px;font-weight:800;letter-spacing:-.02em}
+  .hbrand .seal{width:32px;height:32px;font-size:.85rem}
+  .toggle{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;
+    width:38px;height:38px;cursor:pointer}
+
+  .title{padding:52px 0 8px}
+  .title h1{font-size:clamp(2.2rem,5vw,3.3rem);letter-spacing:-.03em;font-weight:850;margin:8px 0 0}
+  .title p{color:var(--soft);font-size:1.1rem;max-width:56ch;margin:10px 0 0}
+
+  section{padding:34px 0;border-top:1px solid var(--line)}
+  h2{font-size:.95rem;letter-spacing:.02em;margin:0 0 20px;text-transform:uppercase;color:var(--soft);font-weight:700}
+
+  /* logo lockups */
+  .locks{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media (max-width:640px){.locks{grid-template-columns:1fr}}
+  .lock{border:1px solid var(--line);border-radius:16px;padding:34px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow)}
+  .lock.light{background:#F4F3F0;color:#191A1D}
+  .lock.dark{background:#191A1D;color:#F2F1EE}
+  .lock .seal{width:56px;height:56px;font-size:1.35rem}
+  .lock.light .seal{background:#191A1D;color:#FF6A1A;box-shadow:inset 0 0 0 2px #FF6A1A}
+  .lock.dark .seal{background:#FF6A1A;color:#191A1D;box-shadow:none}
+  .lock .wm{font-weight:850;font-size:1.5rem;letter-spacing:-.03em;line-height:1}
+  .lock .wc{font-family:ui-monospace,monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;opacity:.75;margin-top:4px}
+
+  /* colors */
+  .sw{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media (max-width:820px){.sw{grid-template-columns:repeat(2,1fr)}}
+  .chip{border:1px solid var(--line);border-radius:13px;overflow:hidden;background:var(--card)}
+  .chip .top{height:88px}
+  .chip .meta{padding:12px 13px}
+  .chip .nm{font-weight:700;font-size:.9rem}
+  .chip .hx{font-family:ui-monospace,monospace;font-size:.78rem;color:var(--soft);margin-top:2px}
+  .chip .role{font-size:.76rem;color:var(--soft);margin-top:5px}
+
+  /* type */
+  .type .row{border-bottom:1px dashed var(--line);padding:14px 0}
+  .type .row:last-child{border-bottom:none}
+  .type .lab{font-family:ui-monospace,monospace;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+  .t-disp{font-size:2.4rem;font-weight:850;letter-spacing:-.03em;line-height:1.05}
+  .t-h{font-size:1.35rem;font-weight:800;letter-spacing:-.02em}
+  .t-body{font-size:1rem;color:var(--ink)}
+  .t-mono{font-family:ui-monospace,monospace;text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;color:var(--or-d)}
+
+  /* components */
+  .comp{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+  .btn{border-radius:12px;padding:14px 24px;font-weight:750;border:1px solid transparent;font-size:1rem;cursor:pointer}
+  .btn-p{background:var(--or);color:#1a1204}
+  .btn-g{background:transparent;color:var(--ink);border-color:var(--ink)}
+  .chipUI{border:1px solid var(--or);background:var(--or);color:#1a1204;border-radius:999px;padding:9px 15px;font-weight:600;font-size:.86rem}
+  .chipUI.off{background:var(--card);color:var(--soft);border-color:var(--line)}
+  .stampUI{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--or);color:var(--or-d);
+    border-radius:999px;padding:6px 13px;font-family:ui-monospace,monospace;font-size:.64rem;letter-spacing:.15em;text-transform:uppercase;font-weight:700}
+  .stampUI .dot{width:6px;height:6px;border-radius:50%;background:var(--or)}
+
+  /* product cover sample */
+  .cover{max-width:300px;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+  .cover .band{background:var(--or);color:#1a1204;padding:16px 18px}
+  .cover .band .b1{font-weight:850;letter-spacing:-.01em}
+  .cover .band .b2{font-family:ui-monospace,monospace;font-size:.58rem;letter-spacing:.14em;margin-top:2px}
+  .cover .cbody{padding:18px;background:var(--card)}
+  .cover .ct{font-size:1.35rem;font-weight:850;letter-spacing:-.02em;line-height:1.05}
+  .cover .cs{color:var(--soft);font-size:.85rem;margin-top:8px}
+
+  .tags{display:flex;flex-wrap:wrap;gap:10px}
+  .tags span{background:var(--wash);color:var(--or-d);border:1px solid var(--or);border-radius:999px;padding:7px 13px;font-weight:600;font-size:.85rem}
+
+  .dd{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media (max-width:640px){.dd{grid-template-columns:1fr}}
+  .box{border:1px solid var(--line);border-radius:13px;padding:18px;background:var(--card)}
+  .box h3{margin:0 0 8px;font-size:1rem}
+  .box.do h3{color:var(--teal)} .box.dont h3{color:var(--or-d)}
+  .box ul{margin:0;padding-left:18px;color:var(--soft);font-size:.92rem}
+  .box li{margin:5px 0}
+  footer{border-top:1px solid var(--line);padding:26px 0;color:var(--soft);font-size:.85rem}
+</style>
+
+<header><div class="wrap hbar">
+  <div class="hbrand"><span class="seal">IH</span>Income HQ · Brand Board</div>
+  <button class="toggle" id="tg" aria-label="Toggle theme">◑</button>
+</div></header>
+
+<div class="wrap">
+  <div class="title">
+    <div class="mono">Visual identity · v1</div>
+    <h1>Income HQ</h1>
+    <p>The look and voice of the brand — the “For Dummies” of AI income, held to the Anti-PLR Standard. Confident, warm, orange.</p>
+  </div>
+
+  <section>
+    <h2>Logo &amp; lockup</h2>
+    <div class="locks">
+      <div class="lock light"><span class="seal">IH</span><div><div class="wm">Income HQ</div><div class="wc">The Anti-PLR Standard</div></div></div>
+      <div class="lock dark"><span class="seal">IH</span><div><div class="wm">Income HQ</div><div class="wc">The Anti-PLR Standard</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Color palette</h2>
+    <div class="sw">
+      <div class="chip"><div class="top" style="background:#FF6A1A"></div><div class="meta"><div class="nm">Signal Orange</div><div class="hx">#FF6A1A</div><div class="role">Primary accent · buttons</div></div></div>
+      <div class="chip"><div class="top" style="background:#C2490D"></div><div class="meta"><div class="nm">Deep Orange</div><div class="hx">#C2490D</div><div class="role">Text on light · print</div></div></div>
+      <div class="chip"><div class="top" style="background:#191A1D"></div><div class="meta"><div class="nm">Ink Charcoal</div><div class="hx">#191A1D</div><div class="role">Text · dark ground</div></div></div>
+      <div class="chip"><div class="top" style="background:#F4F3F0;border-bottom:1px solid #E4E2DD"></div><div class="meta"><div class="nm">Paper</div><div class="hx">#F4F3F0</div><div class="role">Light ground</div></div></div>
+      <div class="chip"><div class="top" style="background:#FFFFFF;border-bottom:1px solid #E4E2DD"></div><div class="meta"><div class="nm">Card White</div><div class="hx">#FFFFFF</div><div class="role">Cards · surfaces</div></div></div>
+      <div class="chip"><div class="top" style="background:#1F7A70"></div><div class="meta"><div class="nm">Teal</div><div class="hx">#1F7A70</div><div class="role">Links only (rare)</div></div></div>
+      <div class="chip"><div class="top" style="background:#FBEDE4"></div><div class="meta"><div class="nm">Wash</div><div class="hx">#FBEDE4</div><div class="role">Callouts · tags</div></div></div>
+      <div class="chip"><div class="top" style="background:#5A5D64"></div><div class="meta"><div class="nm">Soft Grey</div><div class="hx">#5A5D64</div><div class="role">Secondary text</div></div></div>
+    </div>
+  </section>
+
+  <section class="type">
+    <h2>Typography</h2>
+    <div class="row"><div class="lab">Display — headlines (Sora / Poppins, or system bold)</div><div class="t-disp">AI income, without the junk.</div></div>
+    <div class="row"><div class="lab">Heading — sections (bold sans)</div><div class="t-h">Every question people ask AI — answered.</div></div>
+    <div class="row"><div class="lab">Body — running text (Inter / system sans)</div><div class="t-body">Done-for-you products that actually work — ready to sell the day you get them. No fluff, no fixing, no jargon.</div></div>
+    <div class="row"><div class="lab">Label — mono utility (eyebrows, tags)</div><div class="t-mono">The Anti-PLR Standard</div></div>
+  </section>
+
+  <section>
+    <h2>UI components</h2>
+    <div class="comp">
+      <button class="btn btn-p">Start with the $9 pack</button>
+      <button class="btn btn-g">See what's inside</button>
+      <span class="chipUI">AI Income</span>
+      <span class="chipUI off">Social Media</span>
+      <span class="stampUI"><span class="dot"></span>The Anti-PLR Standard</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Product cover style</h2>
+    <div class="cover">
+      <div class="band"><div class="b1">INCOME HQ</div><div class="b2">THE ANTI-PLR STANDARD</div></div>
+      <div class="cbody"><div class="mono">AI Income · Beginner</div><div class="ct">Start Making Money With AI</div><div class="cs">No code. No big budget. Your first 14 days to a sale.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Voice &amp; taglines</h2>
+    <div class="tags">
+      <span>The Anti-PLR Standard.</span>
+      <span>AI income, minus the overwhelm.</span>
+      <span>Done-for-you products that actually work.</span>
+      <span>Buy the pack. Follow the steps. Get paid.</span>
+      <span>Burned by PLR? This is the fix.</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>Do &amp; don't</h2>
+    <div class="dd">
+      <div class="box do"><h3>Do</h3><ul>
+        <li>Orange as the ONE bold color; charcoal + paper carry the rest.</li>
+        <li>Plain English, warm, one clear CTA per page.</li>
+        <li>Show real value — deliver the outcome we promise.</li>
+        <li>Disclose AI creators/tools as AI.</li>
+      </ul></div>
+      <div class="box dont"><h3>Don't</h3><ul>
+        <li>No second loud color fighting the orange.</li>
+        <li>No jargon, hype, or fake “get rich” claims.</li>
+        <li>No nudity/sexual content (protects payments + ads).</li>
+        <li>No raw, un-rebranded PLR — ever.</li>
+      </ul></div>
+    </div>
+  </section>
+</div>
+
+<footer><div class="wrap">Income HQ · Brand Board v1 — orange on charcoal, the Anti-PLR Standard.</div></footer>
+
+<script>
+  var root=document.documentElement,tg=document.getElementById('tg');
+  function cur(){var e=root.getAttribute('data-theme');return e?e:(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');}
+  tg.addEventListener('click',function(){root.setAttribute('data-theme',cur()==='dark'?'light':'dark');});
+</script>
