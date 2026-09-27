@@ -2,9 +2,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   :root{
-    --bg:#141114; --panel:#1C1719; --card:#211A1C; --line:#33292C;
-    --ink:#F5F1E8; --soft:#A89A93; --or:#FF6A1A; --or-t:#FF9451;
-    --gold:#E8B44A; --gold-d:#CB8F2E; --wine:#5A1A22;
+    --bg:#14101A; --panel:#1D1826; --card:#221B2E; --line:#342A44;
+    --ink:#F3F0F8; --soft:#A79BB8; --or:#8B34E0; --or-t:#B98BF2;
+    --gold:#E8B44A; --gold-d:#CB8F2E; --wine:#3A1655;
     --shadow:0 1px 0 rgba(255,255,255,.03), 0 26px 60px -34px rgba(0,0,0,.85);
   }
   *{box-sizing:border-box}
@@ -45,8 +45,8 @@
   .lock{border:1px solid var(--line);border-radius:16px;padding:32px;display:flex;align-items:center;gap:16px;
     box-shadow:var(--shadow);position:relative;overflow:hidden}
   .lock.dark{background:linear-gradient(150deg,#1E1719,#151012)}
-  .lock.orange{background:linear-gradient(150deg,#FF6A1A,#C2490D);color:#180a02}
-  .lock.orange .emblem{background:#180a02;box-shadow:inset 0 0 0 1.5px var(--gold)}
+  .lock.orange{background:linear-gradient(150deg,#8B34E0,#5B18A6);color:#F7F2FF}
+  .lock.orange .emblem{background:#1E0B36;box-shadow:inset 0 0 0 1.5px var(--gold)}
   .lock .wm{font-weight:900;font-size:1.6rem;letter-spacing:-.02em}
   .lock .wc{font-family:ui-monospace,monospace;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;opacity:.8;margin-top:4px}
 
@@ -78,9 +78,9 @@
   /* components */
   .comp{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
   .btn{border-radius:12px;padding:14px 24px;font-weight:800;border:1px solid transparent;font-size:1rem;cursor:pointer;text-transform:uppercase;letter-spacing:.02em}
-  .btn-p{background:var(--or);color:#180a02}
+  .btn-p{background:var(--or);color:#F7F2FF}
   .btn-g{background:transparent;color:var(--gold);border-color:var(--gold-d)}
-  .chipUI{border:1px solid var(--or);background:var(--or);color:#180a02;border-radius:999px;padding:9px 15px;font-weight:700;font-size:.85rem}
+  .chipUI{border:1px solid var(--or);background:var(--or);color:#F7F2FF;border-radius:999px;padding:9px 15px;font-weight:700;font-size:.85rem}
   .chipUI.off{background:transparent;color:var(--soft);border-color:var(--line)}
   .stampUI{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);
     border-radius:999px;padding:6px 13px;font-family:ui-monospace,monospace;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
@@ -89,7 +89,7 @@
   .mock{perspective:1200px;display:flex;justify-content:center;padding:8px 0}
   .book{position:relative;width:210px;height:280px;border-radius:4px 9px 9px 4px;overflow:hidden;
     transform:rotateY(-16deg);transition:transform .5s ease;
-    background:radial-gradient(120% 80% at 20% 0%,#3a1c08,#160b04 70%);
+    background:radial-gradient(120% 80% at 20% 0%,#3a1258,#14091f 70%);
     box-shadow:inset 11px 0 16px -9px rgba(0,0,0,.7),inset 0 0 0 1px rgba(255,255,255,.06),26px 30px 52px -18px rgba(0,0,0,.75)}
   .book:hover{transform:rotateY(-7deg)}
   .book:before{content:"";position:absolute;left:13px;top:0;bottom:0;width:2px;background:rgba(255,255,255,.14)}
@@ -129,7 +129,7 @@
   <div class="title grain">
     <div class="mono">Visual identity · bold · vibrant · regal</div>
     <h1 class="disp">Income <span class="g">HQ</span></h1>
-    <p>The look and voice of the brand — the shortcut kingdom for AI income. Bold, vibrant, premium. Orange shouts; gold crowns it. <strong>No paint splatter.</strong></p>
+    <p>The look and voice of the brand — the shortcut kingdom for AI income. Bold, vibrant, premium. Purple reigns; gold crowns it. <strong>No paint splatter.</strong></p>
   </div>
 
   <section>
@@ -143,11 +143,11 @@
   <section>
     <h2>Color palette</h2>
     <div class="sw">
-      <div class="chip"><div class="top" style="background:#FF6A1A"></div><div class="meta"><div class="nm">Signal Orange</div><div class="hx">#FF6A1A</div><div class="role">Hero · buttons</div></div></div>
+      <div class="chip"><div class="top" style="background:#8B34E0"></div><div class="meta"><div class="nm">Royal Purple</div><div class="hx">#8B34E0</div><div class="role">Hero · buttons</div></div></div>
       <div class="chip"><div class="top" style="background:#E8B44A"></div><div class="meta"><div class="nm">Royal Gold</div><div class="hx">#E8B44A</div><div class="role">Premium accent · foil</div></div></div>
-      <div class="chip"><div class="top" style="background:#141114"></div><div class="meta"><div class="nm">Charcoal</div><div class="hx">#141114</div><div class="role">Ground</div></div></div>
-      <div class="chip"><div class="top" style="background:#F5F1E8;border-bottom:1px solid #33292C"></div><div class="meta"><div class="nm">Off-White</div><div class="hx">#F5F1E8</div><div class="role">Text on dark</div></div></div>
-      <div class="chip"><div class="top" style="background:#5A1A22"></div><div class="meta"><div class="nm">Deep Wine</div><div class="hx">#5A1A22</div><div class="role">Rare rich shadow</div></div></div>
+      <div class="chip"><div class="top" style="background:#14101A"></div><div class="meta"><div class="nm">Charcoal</div><div class="hx">#14101A</div><div class="role">Ground</div></div></div>
+      <div class="chip"><div class="top" style="background:#F3F0F8;border-bottom:1px solid #342A44"></div><div class="meta"><div class="nm">Off-White</div><div class="hx">#F3F0F8</div><div class="role">Text on dark</div></div></div>
+      <div class="chip"><div class="top" style="background:#3A1655"></div><div class="meta"><div class="nm">Deep Plum</div><div class="hx">#3A1655</div><div class="role">Rare rich shadow</div></div></div>
     </div>
   </section>
 
@@ -204,14 +204,14 @@
     <h2>Do &amp; don't</h2>
     <div class="dd">
       <div class="box do"><h3>Do</h3><ul>
-        <li>Orange as the ONE bold color; gold crowns it as the premium accent.</li>
+        <li>Purple as the ONE bold color; gold crowns it as the premium accent.</li>
         <li>Heavy uppercase display headlines; clean benefit icons.</li>
         <li>Deliver the outcome we promise — that's the brand.</li>
         <li>Disclose AI creators/tools as AI.</li>
       </ul></div>
       <div class="box dont"><h3>Don't</h3><ul>
         <li><strong>No paint splatter</strong> — anywhere, ever.</li>
-        <li>No third loud color fighting the orange + gold.</li>
+        <li>No third loud color fighting the purple + gold.</li>
         <li>No jargon, hype, or fake "get rich" claims.</li>
         <li>No nudity/sexual content (protects payments + ads).</li>
       </ul></div>

@@ -33,17 +33,17 @@ or `getincomehq.com`. Consistency across platforms beats a perfect bare handle o
 
 ## Visual identity — "Primal Premium" (DECIDED)
 Bold, vibrant, regal-premium (Primal Queen energy) — **no paint splatter.**
-- **Hero color:** **Signal Orange** `#FF6A1A` (does the shouting).
+- **Hero color:** **Royal Purple** `#8B34E0` (does the shouting; regal + vibrant).
 - **Accent:** **Royal Gold** `#E8B44A` (premium/regal cues, foil, the emblem).
-- **Ground:** deep charcoal `#141114`; off-white `#F5F1E8`; rare deep **wine** `#5A1A22` for rich shadow.
+- **Ground:** deep charcoal `#14101A` (faint aubergine); off-white `#F3F0F8`; rare deep **plum** `#3A1655` for rich shadow.
 - **Emblem:** a **crown + "IH"** seal in gold on charcoal (replaces the plain seal).
 - **Type:** heavy condensed **display** for headlines (Anton / Archivo Black / Bebas-heavy feel);
   clean sans body; mono for utility labels. (Live store loads the real font; artifacts use a heavy stack.)
 - **Icons:** clean **line benefit-icons** (supplement "what you get" rows) — never emoji, never splatter.
 - **Cover style:** big benefit headline + gold rule + crown emblem + one product visual on a rich
-  charcoal→orange gradient with subtle premium grain (not splatter). Hero covers = photoreal,
+  charcoal→purple gradient with subtle premium grain (not splatter). Hero covers = photoreal,
   magazine/advertising quality; long tail = designed covers on this same template.
-- **Rule:** one bold color (orange) + gold as the premium accent — no third loud color fighting them.
+- **Rule:** one bold color (purple) + gold as the premium accent — no third loud color fighting them.
 
 ## Product lines (shelves in the one store)
 - **The Anti-PLR Kit** — hero line. Done-for-you, ready-to-sell products that fix all 7 PLR gaps.
