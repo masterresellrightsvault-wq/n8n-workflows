@@ -31,15 +31,19 @@ or `getincomehq.com`. Consistency across platforms beats a perfect bare handle o
   aimed at the overwhelm, never the person.
 - Every piece ends with one clear next step.
 
-## Visual identity (DECIDED)
-- **Accent (the one bold color):** confident **orange** — `#E2601F` on light, `#FF8A4C` on dark.
-  Signals energy + authority. This is *our* orange, not borrowed from anyone.
-- **Ground:** neutral charcoal `#191A1D` + clean off-white `#F4F3F0` (no brown, no green).
-- **Secondary:** rare teal `#1F7A70` for links only (orange's complement); burnt-orange `#B5451B` stamp.
-- **Logo mark:** "IH" seal badge — orange on charcoal.
-- **Type:** bold geometric sans headlines, clean sans body, mono for utility labels.
-- **Cover style:** big benefit + the orange accent + the IH seal. Consistent template = looks like
-  a brand, not a PLR dump. Generate covers via the ComfyUI stack (`../ai-stack/`).
+## Visual identity — "Primal Premium" (DECIDED)
+Bold, vibrant, regal-premium (Primal Queen energy) — **no paint splatter.**
+- **Hero color:** **Signal Orange** `#FF6A1A` (does the shouting).
+- **Accent:** **Royal Gold** `#E8B44A` (premium/regal cues, foil, the emblem).
+- **Ground:** deep charcoal `#141114`; off-white `#F5F1E8`; rare deep **wine** `#5A1A22` for rich shadow.
+- **Emblem:** a **crown + "IH"** seal in gold on charcoal (replaces the plain seal).
+- **Type:** heavy condensed **display** for headlines (Anton / Archivo Black / Bebas-heavy feel);
+  clean sans body; mono for utility labels. (Live store loads the real font; artifacts use a heavy stack.)
+- **Icons:** clean **line benefit-icons** (supplement "what you get" rows) — never emoji, never splatter.
+- **Cover style:** big benefit headline + gold rule + crown emblem + one product visual on a rich
+  charcoal→orange gradient with subtle premium grain (not splatter). Hero covers = photoreal,
+  magazine/advertising quality; long tail = designed covers on this same template.
+- **Rule:** one bold color (orange) + gold as the premium accent — no third loud color fighting them.
 
 ## Product lines (shelves in the one store)
 - **The Anti-PLR Kit** — hero line. Done-for-you, ready-to-sell products that fix all 7 PLR gaps.
